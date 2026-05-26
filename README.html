@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java Developer | kuall</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0c10;
+      font-family: 'Inter', sans-serif;
+      color: #eef2ff;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 4rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(100, 108, 255, 0.3);
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #a855f7, #6366f1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .logo i {
+      color: #8b5cf6;
+      margin-right: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: #cdd9ff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #a855f7;
+    }
+
+    .hero {
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(8px);
+      border-radius: 2rem;
+      padding: 2.5rem;
+      margin-bottom: 4rem;
+      border: 1px solid rgba(139, 92, 246, 0.3);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #a855f7, #6366f1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #cbd5e6;
+      max-width: 600px;
+      margin: 1rem 0;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #1e293b;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
+    }
+
+    .badge i {
+      color: #fbbf24;
+      margin-right: 8px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0.7rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+      background: #111827;
+      color: #e2e8f0;
+      border: 1px solid #334155;
+    }
+
+    .social-btn:hover {
+      background: #1f2a3e;
+      border-color: #a855f7;
+      transform: translateY(-2px);
+    }
+
+    .section {
+      margin: 4rem 0;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title i {
+      color: #a855f7;
+      font-size: 1.8rem;
+    }
+
+    .tech-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .tech-item {
+      background: #111827;
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      border: 1px solid #2d3a5e;
+      transition: 0.2s;
+    }
+
+    .tech-item:hover {
+      border-color: #a855f7;
+      background: #1e1b2e;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: #0f1420cc;
+      backdrop-filter: blur(4px);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      border: 1px solid #2a2f44;
+      transition: 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: #a855f7;
+      transform: translateY(-4px);
+    }
+
+    .project-card h3 {
+      font-size: 1.3rem;
+      margin: 0.5rem 0;
+    }
+
+    .project-card p {
+      color: #a3b3d6;
+      font-size: 0.9rem;
+      margin: 0.8rem 0;
+    }
+
+    .project-tag {
+      font-size: 0.7rem;
+      background: #2d374b;
+      display: inline-block;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      margin-right: 0.5rem;
+    }
+
+    .contact-block {
+      background: linear-gradient(145deg, #0b1019, #070b12);
+      border-radius: 2rem;
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid #a855f730;
+      margin-top: 3rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      color: #cbd5f0;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .contact-links a:hover {
+      color: #a855f7;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 2rem;
+      color: #6f7c9b;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 2rem; }
+      .navbar { flex-direction: column; align-items: flex-start; }
+      .nav-links { gap: 1rem; }
+      .hero { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="navbar">
+    <div class="logo">
+      <i class="fab fa-java"></i> JavaDev
+    </div>
+    <div class="nav-links">
+      <a href="#about">Обо мне</a>
+      <a href="#skills">Навыки</a>
+      <a href="#contact">Контакты</a>
+    </div>
+  </div>
+
+  <div id="about" class="hero">
+    <h1>Привет, я <span class="gradient-text">Java-разработчик</span></h1>
+    <p>Пишу на Java уже <strong>2+ года</strong>. Создаю плагины, моды и бэкенд-сервисы.</p>
+    <div class="badge">
+      <i class="fas fa-code"></i> 2+ года опыта | Java 17 | Плагины & Моды
+    </div>
+    <div class="social-links">
+      <a href="https://github.com/yourusername" target="_blank" class="social-btn">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <a href="https://discord.gg/yourinvite" target="_blank" class="social-btn">
+        <i class="fab fa-discord"></i> Discord
+      </a>
+      <a href="https://t.me/yourusername" target="_blank" class="social-btn">
+        <i class="fab fa-telegram"></i> Telegram
+      </a>
+    </div>
+  </div>
+
+  <div id="skills" class="section">
+    <div class="section-title">
+      <i class="fas fa-cogs"></i>
+      <h2>Технологии и инструменты</h2>
+    </div>
+    <div class="tech-grid">
+      <span class="tech-item"><i class="fab fa-java"></i> Java 17</span>
+      <span class="tech-item">Spigot / Paper API</span>
+      <span class="tech-item">Fabric / Forge</span>
+      <span class="tech-item">Maven / Gradle</span>
+      <span class="tech-item">Git & GitHub</span>
+      <span class="tech-item">REST API</span>
+      <span class="tech-item">SQLite / MySQL</span>
+    </div>
+  </div>
+
+  
+  
+
+  <div id="contact" class="contact-block">
+    <h2><i class="fas fa-paper-plane"></i> Связаться со мной</h2>
+    <div class="contact-links">
+      <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://discord.gg/yourinvite" target="_blank"><i class="fab fa-discord"></i> Discord</a>
+      <a href="https://t.me/yourusername" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+    </div>
+    <p style="margin-top: 1rem; color: #a855f7;">Всегда открыт для заказов и сотрудничества!</p>
+  </div>
+
+  <footer>
+    Java-разработчик | 2+ года опыта
+  </footer>
+</div>
+</body>
+</html>
